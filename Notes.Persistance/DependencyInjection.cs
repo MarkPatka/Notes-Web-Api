@@ -21,11 +21,6 @@ public static class DependencyInjection
         services.AddScoped<INotesDbContext>(provider => 
             provider.GetService<NotesDbContext>() ?? throw new ArgumentNullException(nameof(NotesDbContext)));
 
-        services.AddMediatR(cfg => 
-        { 
-            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()); 
-        });
-
         return services;
     }
 }
