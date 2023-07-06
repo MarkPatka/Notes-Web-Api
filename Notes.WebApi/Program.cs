@@ -1,6 +1,26 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using Notes.Persistance;
+using Notes.WebApi;
 
-app.MapGet("/", () => "Hello World!");
+var host = CreatehostBuilder(args).Build();
 
-app.Run();
+using (var scope = host.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+    try
+    {
+        var context = serviceProvider.GetRequiredService<NotesDbContext>();
+        DbInitializer.Initialize(context);
+    }
+    catch (Exception exception)
+    {
+
+    }
+}
+host.Run();
+
+static IHostBuilder CreatehostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.UseStartup<Startup>();
+    });
