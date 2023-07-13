@@ -22,18 +22,18 @@ public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
             {
                 Version = apiVersion,
                 Title = $"Notes API {apiVersion}",
-                Description = "A simple example ASP NET Core Web API.",
-                TermsOfService = new Uri("https://www.youtube.com/c/PlatinumTechTalks"),
+                Description = "This sample was created by this tutorial (link below)",                
+                TermsOfService = new Uri("https://www.youtube.com/playlist?list=PLEtg-LdqEKXbpq4RtUp1hxZ6ByGjnvQs4"),
                 Contact = new OpenApiContact
                 {
-                    Name = " Platinum Chat",
+                    Name = "Support",
                     Email = string.Empty,
-                    Url = new Uri("https://t.me/platinum_chat")
+                    Url = new Uri("https://t.me/The_Holy_Other")
                 },
                 License = new OpenApiLicense
                 {
-                    Name = "Platinum Telegram Channel",
-                    Url = new Uri("https://t.me/platinum_texh_talks")
+                    Name = "Contact me",
+                    Url = new Uri("https://t.me/The_Holy_Other")
                 }
             });
 
