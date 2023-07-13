@@ -20,5 +20,4 @@ public class UpdateNoteDto : IMapWith<UpdateNoteCommand>
             .ForMember(noteCommand => noteCommand.Title,
                 opt => opt.MapFrom(noteDto => noteDto.Title));
     }
-
 }
